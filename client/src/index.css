@@ -1,0 +1,20 @@
+@import "tailwindcss";
+@theme {
+  --color-ink: #14201f;
+  --color-panel: #1d2e2c;
+  --color-line: #36504c;
+  --color-paper: #efe6d2;
+  --color-tag: #e7b84a;
+  --color-red: #d9534f;
+  --font-display: "Fraunces", Georgia, serif;
+  --font-sans: "Hanken Grotesk", system-ui, sans-serif;
+}
+body { background: var(--color-ink); color: var(--color-paper); font-family: var(--font-sans); }
+button:focus-visible, textarea:focus-visible, input:focus-visible, select:focus-visible { outline: 2px solid var(--color-tag); outline-offset: 2px; }
+@keyframes ink { from { opacity: 0; transform: rotateX(70deg) scale(.96); } to { opacity: 1; transform: none; } }
+@keyframes stamp { 0% { opacity: 0; transform: scale(2.2) rotate(-6deg); } 60% { opacity: 1; transform: scale(.96) rotate(-2deg); } 100% { transform: scale(1) rotate(-2deg); } }
+@keyframes rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+.reveal { animation: ink .5s ease-out; transform-origin: top; }
+.stamp { display: inline-block; animation: stamp .55s cubic-bezier(.2,.8,.3,1) both; }
+.rise { animation: rise .4s ease-out both; }
+@media (prefers-reduced-motion: reduce) { .reveal, .stamp, .rise { animation: none; } }
